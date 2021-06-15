@@ -15,6 +15,7 @@ addBtn.addEventListener('click', function (e) {
     if (notes == null) {
         // if there are no notes previously we will creatwe a new array name noresObj
         notesObj = [];
+        //new comment
     }
     else {
         // else we will fetch the previous made array
