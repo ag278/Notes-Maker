@@ -1,0 +1,196 @@
+/*css for div that contains all the cards*/
+.cardContainer p{
+    width: 100%;
+  }
+  .cardContainer p,.cardContainer a {
+    text-decoration: none;
+    background-color: #f0f0f0;
+    border: none;
+    outline: none;
+    display: inline-block;
+    padding: 8px;
+    color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+    margin: 5px 0px;
+    font-size: 18px;
+  }
+  .cardContainer p:hover,.cardContainer a:hover {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /*css for each card*/
+  
+  /*Gives proper spacing and sets text*/
+  .cardContent {
+    width: 90%;
+    margin: 1.5%;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .cardContent h3{
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #212121;
+  }
+  
+  .cardContent .links{
+    overflow: auto;
+    height: 150px;
+    border: 2px solid #212121;
+  }
+  
+  .branchCover .links{
+    overflow: auto;
+    height: auto;
+    border: 2px solid #212121;
+  }
+  
+  /*Style for cover(cover is used to give proper spacing between the
+  cards while using bootstrap grid system) of the card*/
+  .cardCover{
+    margin: 10px 0px;
+    float: left;
+    text-align: center;
+  }
+  #branchLists>h3{
+      text-align: center;
+      width: 100%;
+      padding: 60px;
+    color: #000;
+  }
+  
+  /*Style for return button*/
+  .btnReturn{
+    background-color: #fff;
+    color: #000;
+    margin: 0px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: 1px solid transparent;
+  }
+  .btnReturn:hover{
+    background-color: #212121;
+  }
+  .miditems>nav-item {
+    margin-left: 50px !important;
+}
+
+.searchBar {
+    margin-right: 40px;
+}
+
+div.form {
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+form {
+    /* display: inline-block; */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+
+
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.feedback-title {
+    background-color: rgb(49, 99, 156);
+    color: #fff;
+    padding: 0px 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.feeback-inner {
+    border: 1px solid grey;
+    border-radius: 10px;
+
+}
+
+.feedback-inner form {
+    padding: 0px 30px;
+}
+
+.feedback-form-main h4 {
+    margin: 0px;
+    padding: 10px 0;
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.feeback-form-main form {
+    padding: 0 30px;
+}
+
+.submit-btn {
+    margin: 0px auto;
+    display: block;
+    text-align: center;
+}
+
+.accordion-body button {
+    color: white;
+}
+
+
+
+.part-one-main button {
+    color: #ffffff !important;
+}
+
+.mb-0>a {
+    display: block;
+    position: relative;
+    /* color: white; */
+    font-weight: 200;
+}
+
+.mb-0>a:after {
+    content: "\f078";
+    /* fa-chevron-down */
+    font-family: 'FontAwesome';
+    color: blue;
+
+    position: absolute;
+    right: 0;
+}
+
+.mb-0>a[aria-expanded="true"]:after {
+    content: "\f077";
+    /* fa-chevron-up */
+}
+
+.part-one-main {
+    margin-bottom: 10px;
+}
+
+.part-two-main button {
+    /* content: "\f078"; */
+    /* fa-chevron-down */
+    /* font-family: 'FontAwesome'; */
+    font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #4e4eff;
+    font-size: 1.3rem;
+    font-weight: 50;
+    line-height: 0.5;
+
+}
+  
