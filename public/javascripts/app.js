@@ -1,5 +1,8 @@
 console.log("dfvv");
 
+let token = localStorage.getItem("tokened");
+token=JSON.parse(token);
+
 //whenever the page loads we print all the previous notes stored
 showNotes();
 //if user add a note add it to local stroage
@@ -25,9 +28,10 @@ addBtn.addEventListener('click', function (e) {
         title: addTitle.value,
         text: addText.value
     }
-    axios.post('http://localhost:3000/notes',   myObj    )
+   // console.log(`Bearer ${token}`);
+    axios.post('http://localhost:3000/notes',myObj,{ headers: {"Authorization" : `Bearer ${token}`} })
       .then(function (response) {
-        console.log(response);
+        //console.log(response);
       })
       .catch(function (error) {
         console.log(error.response);
@@ -48,7 +52,7 @@ addBtn.addEventListener('click', function (e) {
     localStorage.setItem("notes", JSON.stringify(notesObj));
     //now aftwr someone has add a notw we will clear the text area
     addText.value = "";
-addTitle.value="";
+    addTitle.value="";
     // console.log(notesObj);
 
     showNotes();
@@ -57,8 +61,45 @@ addTitle.value="";
 
 //the function shownotes is ued to show the previous notes we created
 function showNotes() {
+
     //fetching the previous notes form local storage
-    let notes = localStorage.getItem("notes");
+    axios.get('http://localhost:3000/notes',{ headers: {"Authorization" : `Bearer ${token}`} })
+    .then(function (response) {
+        //console.log(response);
+        let notex=response.data;
+       // console.log(notex);
+        let html = "";
+        notex.forEach(function (value,index) {
+            //let notesObjx = Object.entries(notesObj)
+            //for (let [value,index] of notesObjx) {
+            html += `
+                <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">${value.title}</h5>
+                            <p class="card-text"> ${value.text}</p>
+                            <button id="${value._id}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+                        </div>
+                    </div>`;
+            //this.id sends the id of that node which has been clicked
+        });
+        let notesElm = document.getElementById("notes");
+            if (notex.length != 0) {
+                notesElm.innerHTML = html;
+            }
+            else {
+                notesElm.innerHTML = `No notes available now`
+            }
+        
+       
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    }); 
+
+
+
+    /*let notes = localStorage.getItem("notes");
+    //console.log(notes );
     if (notes == null) {
         // if there are no notes previously we will creatwe a new array name noresObj
         notesObj = [];
@@ -67,6 +108,7 @@ function showNotes() {
         // else we will fetch the previous made array
         notesObj = JSON.parse(notes);
     }
+    
     //we will create a variale tring html and using for loop we traverse thriugh alll the notes stored in form of array and set them in their own block. using template literal 
     let html = "";
     notesObj.forEach(function (value,index) {
@@ -82,6 +124,7 @@ function showNotes() {
                 </div>`;
         //this.id sends the id of that node which has been clicked
     });
+    
 
     //if there are no previous notes there so we simply print the html string which contain all the notes 
     let notesElm = document.getElementById("notes");
@@ -92,28 +135,25 @@ function showNotes() {
         notesElm.innerHTML = `No notes available now`
     }
 
+    */
+
 }
 
 //function to delete node
 function deleteNote(index) {
     console.log('I am deleting', index);
-    let notes = localStorage.getItem("notes");
-    if (notes == null) {
-        // if there are no notes previously we will creatwe a new array name noresObj
-        notesObj = [];
-    }
-    else {
-        // else we will fetch the previous made array
-        notesObj = JSON.parse(notes);
-    }
+    //console.log(index);
+    axios.put('http://localhost:3000/notes/', { xx:index  } ,{ headers: {"Authorization" : `Bearer ${token}`} })
+    .then(function (response) {
+        console.log(response); 
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    }); 
 
-    notesObj.splice(index, 1);
-    //after deleting we need to upate the local strograe so we are deleting the node
-    localStorage.setItem("notes", JSON.stringify(notesObj));
     showNotes();
 
 }
-
 
 //we will get the text we are inputting in the search bar
 search = document.getElementById('searchTxt');

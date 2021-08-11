@@ -1,11 +1,13 @@
 const moongoose = require('mongoose');
 const Schema = moongoose.Schema;
 const nodeSchema = new Schema({
+    id: {
+        type: String,
+        required: true,
+    },
     title: {
         type: String,
         required: true,
-        unique: true
-        
     },
     text:{
         type : String,
