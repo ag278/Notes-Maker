@@ -1,3 +1,4 @@
+//var config = require('../../config');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 let validEmail = false;
@@ -11,7 +12,7 @@ submit.addEventListener('click', (e) => {
         username: email.value,
         password:password.value,
     };
-    axios.post('http://localhost:3000/user/login',   myObj    )
+    axios.post( '/user/login',   myObj    )
         .then(function (response) {
             console.log(response);
             var tokenx=response.data.token;
@@ -39,7 +40,7 @@ submit.addEventListener('click', (e) => {
             username: email.value,
             password:password.value,
         };
-        axios.post('http://localhost:3000/user/login',   myObj    )
+        axios.post( '/user/login',   myObj    )
             .then(function (response) {
                 var tokenx=response.token;
                 localStorage.setItem("token", JSON.stringify(tokenx));

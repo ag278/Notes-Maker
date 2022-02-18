@@ -1,3 +1,4 @@
+//var config = require('../../config');
 const name1 = document.getElementById('firstname');
 const name2 = document.getElementById('lastname');
 const email = document.getElementById('email');
@@ -116,7 +117,7 @@ submit.addEventListener('click', (e) => {
             lastname:name2.value,
         };
         //console.log(myObj);
-        axios.post('http://localhost:3000/user/signup/',   myObj    )
+        axios.post( '/user/signup/',   myObj    )
             .then(function (response) {
             console.log(response);
         })

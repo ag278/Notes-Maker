@@ -1,3 +1,4 @@
+//var config = require('../../config');
 console.log("dfvv");
 
 let token = localStorage.getItem("tokened");
@@ -29,7 +30,7 @@ addBtn.addEventListener('click', function (e) {
         text: addText.value
     }
    // console.log(`Bearer ${token}`);
-    axios.post('http://localhost:3000/notes',myObj,{ headers: {"Authorization" : `Bearer ${token}`} })
+    axios.post( '/notes',myObj,{ headers: {"Authorization" : `Bearer ${token}`} })
       .then(function (response) {
         //console.log(response);
       })
@@ -63,7 +64,7 @@ addBtn.addEventListener('click', function (e) {
 function showNotes() {
 
     //fetching the previous notes form local storage
-    axios.get('http://localhost:3000/notes',{ headers: {"Authorization" : `Bearer ${token}`} })
+    axios.get( '/notes',{ headers: {"Authorization" : `Bearer ${token}`} })
     .then(function (response) {
         //console.log(response);
         let notex=response.data;
@@ -143,7 +144,7 @@ function showNotes() {
 function deleteNote(index) {
     console.log('I am deleting', index);
     //console.log(index);
-    axios.put('http://localhost:3000/notes/', { xx:index  } ,{ headers: {"Authorization" : `Bearer ${token}`} })
+    axios.put( '/notes/', { xx:index  } ,{ headers: {"Authorization" : `Bearer ${token}`} })
     .then(function (response) {
         console.log(response); 
     })

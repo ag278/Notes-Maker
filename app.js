@@ -10,12 +10,25 @@ const mongoose = require('mongoose');
 
 var config = require('./config');
 
-const url = config.mongoUrl;
+/*const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 
 connect.then((db) => {
     console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
+*/
+const url=config.mongoUrl;
+mongoose.connect(url,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false 
+});
+mongoose.connection.on('error', (err) => {
+    console.log("Mongoose Connection error " + err.message);
+  });
+mongoose.connection.once('open', () => {
+    console.log("MongoDB connected on "+url); 
+});
 
 
 
