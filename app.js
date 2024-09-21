@@ -18,6 +18,7 @@ connect.then((db) => {
 }, (err) => { console.log(err); });
 */
 const url=config.mongoUrl;
+// const url  = "mongodb+srv://admin:admin@cluster0.wlrorfp.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(url,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
