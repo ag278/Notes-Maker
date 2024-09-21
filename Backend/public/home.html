@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="template.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- <style>
+        .miditems li {
+            margin-left: 50px !important;
+        }
+
+        .searchBar {
+            margin-right: 40px;
+        }
+
+        div.form {
+            display: inline-block;
+            text-align: center;
+            width: 80%;
+
+            margin-left: 10%;
+            border-radius: 10px;
+        }
+
+        form {
+            /* display: inline-block; */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+
+
+        }
+
+        .required:after {
+            content: " *";
+            color: red;
+        }
+
+        .feedback-title {
+            background-color: rgb(49, 99, 156);
+            color: #fff;
+            padding: 0px 30px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+        }
+
+        .feeback-inner {
+            border: 1px solid grey;
+            border-radius: 10px;
+
+        }
+
+        .feedback-inner form {
+            padding: 0px 30px;
+        }
+
+        .feedback-form-main h4 {
+            margin: 0px;
+            padding: 10px 0;
+            text-transform: capitalize;
+            font-weight: 800;
+        }
+
+        .feeback-form-main form {
+            padding: 0 30px;
+        }
+
+        .submit-btn {
+            margin: 0px auto;
+            display: block;
+            text-align: center;
+        }
+
+        .accordion-body button {
+            color: white;
+        }
+
+
+
+        .part-one-main button {
+            color: #ffffff !important;
+        }
+
+        .mb-0>a {
+            display: block;
+            position: relative;
+            /* color: white; */
+            font-weight: 200;
+        }
+
+        .mb-0>a:after {
+            content: "\f078";
+            /* fa-chevron-down */
+            font-family: 'FontAwesome';
+            color: blue;
+
+            position: absolute;
+            right: 0;
+        }
+
+        .mb-0>a[aria-expanded="true"]:after {
+            content: "\f077";
+            /* fa-chevron-up */
+        }
+
+        .part-one-main {
+            margin-bottom: 10px;
+        }
+
+        .part-two-main button {
+            /* content: "\f078"; */
+            /* fa-chevron-down */
+            /* font-family: 'FontAwesome'; */
+            font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            color: #4e4eff;
+            font-size: 1.3rem;
+            font-weight: 50;
+            line-height: 0.5;
+
+        }
+    </style> -->
+</head>
+
+<body>
+    <script>
+        let kaku=localStorage.getItem('tokened');
+        console.log(kaku);
+        if(kaku==null){
+            window.location.replace("../login.html");
+        }
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h2>Notes Maker</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse miditems" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 e-5 ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#part-one-main-id">Question Papers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#part-two-main-id">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#feedback-id">Feedback</a>
+                    </li>
+
+
+                </ul>
+                <form class="d-flex searchBar">
+                    <input class="form-control me-2" id="searchTxt" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+                <div class="dropdown">
+                    <a class="btn btn-default dropdown-toggle" type="button" role="button" id="menu1"
+                        data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="user-removebg-preview.png" width="50px" height=auto class="img-fluid">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu text-align-left" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="index.html">My Profile</a></li>
+                        <li><button class="dropdown-item Logout" id="logof">Logout</button></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container bg-light">
+        <div class="part-one-main" id="part-one-main-id">
+            <div class="container">
+                <div id="branchLists">
+                    <h3 style="font-size:37px"><span class="badge bg-secondary">Past Year Papers</span></h3>
+                    <div id="accordion">
+                        <div class="card ">
+                            <div class="card-header bg-dark" id="heading-1">
+                                <h5 class="mb-0">
+                                    <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true"
+                                        aria-controls="collapse-1">
+                                        First Year
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-1" class=" panel-collapse collapse " data-parent="#accordion"
+                                aria-labelledby="heading-1">
+                                <div class="card-body">
+
+                                    <div id="accordion-1">
+
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-1-1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-1-1" aria-expanded="false"
+                                                        aria-controls="collapse-1-1">
+                                                        Physics
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-1-1" class="collapse" data-parent="#accordion-1"
+                                                aria-labelledby="heading-1-1">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1pRkFDoHV_zmAy0fKgen-kq0o8iWQP7NH">Download
+                                                        Physics Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-1-2">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-1-2" aria-expanded="false"
+                                                        aria-controls="collapse-1-2">
+                                                        Chemistry
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-1-2" class="collapse" data-parent="#accordion-1"
+                                                aria-labelledby="heading-1-2">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1mf57oECbt9n6S5QPYBK-YXqhbmvOZ9__">Download
+                                                        Chemistry Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-1-3">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-1-3" aria-expanded="false"
+                                                        aria-controls="collapse-1-3">
+                                                        Maths
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-1-3" class="collapse" data-parent="#accordion-1"
+                                                aria-labelledby="heading-1-3">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1DIuZoayQi_MKKO57e0xeh7IWKefssq-o">Download
+                                                        Maths Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-1-4">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-1-4" aria-expanded="false"
+                                                        aria-controls="collapse-1-4">
+                                                        Programming Data Structure
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-1-4" class="collapse" data-parent="#accordion-1"
+                                                aria-labelledby="heading-1-4">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=18DheSPBqctk90D-5Hze15DkMbXdVg6yA">Download
+                                                        PDS Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-1-5">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-1-5" aria-expanded="false"
+                                                        aria-controls="collapse-1-5">
+                                                        English for Communication
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-1-5" class="collapse" data-parent="#accordion-1"
+                                                aria-labelledby="heading-1-5">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=10rvhuh5JTRgPpntDapNzWxvXumswppSM">Download
+                                                        English for Communication Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ">
+                            <div class="card-header bg-dark" id="heading-2">
+                                <h5 class="mb-0">
+                                    <a role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="true"
+                                        aria-controls="collapse-2">
+                                        Computer Science and Engineering
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-2" class="panel-collapse collapse" data-parent="#accordion"
+                                aria-labelledby="heading-2">
+                                <div class="card-body">
+
+                                    <div id="accordion-2">
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-2-1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-2-1" aria-expanded="false"
+                                                        aria-controls="collapse-2-1">
+                                                        Discrete Structure
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-2-1" class="collapse" data-parent="#accordion-2"
+                                                aria-labelledby="heading-2-1">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1VZDRjNlUzyeZgWY0syPt7s8EdFgjF29x">Download
+                                                        Discrete Structure Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-2-2">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-2-2" aria-expanded="false"
+                                                        aria-controls="collapse-2-2">
+                                                        Data Structure
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-2-2" class="collapse" data-parent="#accordion-2"
+                                                aria-labelledby="heading-2-2">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1kegTLOkl85qqLLefWx9c1RA52UjKdLAt">Download
+                                                        Data Structure Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-2-3">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-2-3" aria-expanded="false"
+                                                        aria-controls="collapse-2-3">
+                                                        Design And Analysis of Algorithm
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-2-3" class="collapse" data-parent="#accordion-2"
+                                                aria-labelledby="heading-2-3">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1vae4MkBt6wwsNvdCyDhvyIRwV12hrdSV">Download
+                                                        Design And Analysis of Algorithm Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ">
+                            <div class="card-header bg-dark" id="heading-3">
+                                <h5 class="mb-0">
+                                    <a role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="true"
+                                        aria-controls="collapse-3">
+                                        Electronics and Communication Engineering
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-3" class="panel-collapse collapse" data-parent="#accordion"
+                                aria-labelledby="heading-3">
+                                <div class="card-body">
+
+                                    <div id="accordion-3">
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-3-1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-3-1" aria-expanded="false"
+                                                        aria-controls="collapse-3-1">
+                                                        Introduction to Electronics
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-3-1" class="collapse" data-parent="#accordion-3"
+                                                aria-labelledby="heading-3-1">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1qSOas3emHhu_5dlllZKzPhDzJr2UssxY">Download
+                                                        Introduction to Electronics Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-3-2">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-3-2" aria-expanded="false"
+                                                        aria-controls="collapse-3-2">
+                                                        Signal and System
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-3-2" class="collapse" data-parent="#accordion-3"
+                                                aria-labelledby="heading-3-2">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1Ei0tK6qvafcaJzAHcSj4oy5Wn5APXK2z">Download
+                                                        Signal and System paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ">
+                            <div class="card-header bg-dark" id="heading-4">
+                                <h5 class="mb-0">
+                                    <a role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="true"
+                                        aria-controls="collapse-4">
+                                        Electrical Engineering
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-4" class="panel-collapse collapse" data-parent="#accordion"
+                                aria-labelledby="heading-4">
+                                <div class="card-body">
+
+                                    <div id="accordion-4">
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-4-1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-4-1" aria-expanded="false"
+                                                        aria-controls="collapse-4-1">
+                                                        Electrical Technology
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-4-1" class="collapse" data-parent="#accordion-4"
+                                                aria-labelledby="heading-4-1">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1-nb9BR-Jvp5jcTBBqFQOaftFo5ytwfc3">Download
+                                                        Electrical Technology Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-4-2">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-4-2" aria-expanded="false"
+                                                        aria-controls="collapse-4-2">
+                                                        Introduction to Elcetromagnetic Engineering
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-4-2" class="collapse" data-parent="#accordion-4"
+                                                aria-labelledby="heading-4-2">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1Ci6JZs-MYk6wvnB3oTg2L0hWlRB54qMf">Download
+                                                        Introduction to Elcetromagnetic Engineering Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ">
+                            <div class="card-header bg-dark" id="heading-5">
+                                <h5 class="mb-0">
+                                    <a role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="true"
+                                        aria-controls="collapse-5">
+                                        Mechanical Engineering
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-5" class="panel-collapse collapse" data-parent="#accordion"
+                                aria-labelledby="heading-5">
+                                <div class="card-body">
+
+                                    <div id="accordion-5">
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-5-1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-5-1" aria-expanded="false"
+                                                        aria-controls="collapse-5-1">
+                                                        Theory of Machines-1
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-5-1" class="collapse" data-parent="#accordion-5"
+                                                aria-labelledby="heading-5-1">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1tfK-aScoAEmrKwxQUWXJVJdA2y-SuIZI">Download
+                                                        Theory of Machines-1 Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-5-2">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-5-2" aria-expanded="false"
+                                                        aria-controls="collapse-5-2">
+                                                        Fluid Mechanics
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-5-2" class="collapse" data-parent="#accordion-5"
+                                                aria-labelledby="heading-5-2">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1YUoQiT9He3kJv03AvuNoSJR9Sbu9Qwr5">Download
+                                                        Fluid Mechanics Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ">
+                            <div class="card-header bg-dark" id="heading-6">
+                                <h5 class="mb-0">
+                                    <a role="button" data-toggle="collapse" href="#collapse-6" aria-expanded="true"
+                                        aria-controls="collapse-6">
+                                        Civil Engineering
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-6" class="panel-collapse collapse" data-parent="#accordion"
+                                aria-labelledby="heading-6">
+                                <div class="card-body">
+
+                                    <div id="accordion-6">
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-6-1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-6-1" aria-expanded="false"
+                                                        aria-controls="collapse-6-1">
+                                                        Solid Mechanics
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-6-1" class="collapse" data-parent="#accordion-6"
+                                                aria-labelledby="heading-6-1">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1F0p5cvgWVAhuvEGX3NMF6h0ZgpQ3mQI-">Download
+                                                        Solid Mechanics Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header bg-dark" id="heading-6-2">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-6-2" aria-expanded="false"
+                                                        aria-controls="collapse-6-2">
+                                                        Surveying
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-6-2" class="collapse" data-parent="#accordion-6"
+                                                aria-labelledby="heading-6-2">
+                                                <div class="card-body">
+                                                    <a
+                                                        href="https://drive.google.com/uc?export=download&id=1QSoBygN0X-4Bezwbt4rCLxAEr9fDMjk9">Download
+                                                        Surveying Paper</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ">
+                            <div class="card-header bg-dark" id="heading-7">
+                                <h5 class="mb-0 ">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-7"
+                                        aria-expanded="true" aria-controls="collapse-7">
+                                        Metallurgical and Materials Engineering
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div class="card">
+                                <div id="collapse-7" class="panel-collapse collapse" data-parent="#accordion-7"
+                                    aria-labelledby="heading-7">
+                                    <div class="card-body">
+                                        Currently not available,please try later.
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="part-two-main" id="part-two-main-id">
+            <div class="container">
+                <div id="branchLists">
+                    <h3 style="font-size:37px"><span class="badge bg-secondary">Notes</span></h3>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header " id="headingOne">
+                                <button class="accordion-button collapsed bg-dark" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                    First Year
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Currently not available,please try later.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed bg-dark" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    Computer Science and Engineering
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Currently not available,please try later.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed bg-dark" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Electronics and Communication Engineering
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Currently not available,please try later.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed bg-dark" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    Electrical Engineering
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Currently not available,please try later.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed bg-dark" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                    Mechanical Engineering
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Currently not available,please try later.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed bg-dark" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                                    aria-controls="collapseSix">
+                                    Civil Engineering
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Currently not available,please try later.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed bg-dark" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false"
+                                    aria-controls="collapseSeven">
+                                    Metallurgical and Materials Engineering
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Currently not available,please try later.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="branchLists">
+            <h3 style="font-size:37px"><span class="badge bg-secondary">Any Issue? Please Let us Know</span></h3>
+            <div class="cardContainer"></div>
+        </div>
+
+        <div class="feeback-form-main" id="feedback-id">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 feeback-inner p-0">
+                        <div class="feedback-title text-center">
+                            <h4>Feedback Form</h4>
+
+                            We would love to hear your thoughts, suggestions, concerns or problems with anything so we
+                            can
+                            improve!
+
+                            <br>
+                            <hr>
+                        </div>
+
+                        <form>
+                            <br>
+
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label required">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="ex: myname@example.com">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label required">Branch Name</label>
+                                <input type="text" class="form-control" id="exampleInputbranch"
+                                    aria-describedby="branchHelp" placeholder="Enter your branch Name">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1" class="required">Describe Your Feedback</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <br>
+                            <button type="submit" id="submit" class="btn btn-primary mb-3 submit-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <script src="feedback-form.js"></script>
+    <script src="javascripts/logout.js"></script>
+
+</body>
+
+
+</html>

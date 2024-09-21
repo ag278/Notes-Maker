@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+    <script>
+        let kaku=localStorage.getItem('tokened');
+        console.log(kaku);
+        if(kaku==null){
+            window.location.replace("../login.html");
+        }
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h2>Notes Maker</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse miditems" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 e-5 ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html#part-one-main-id">Question Papers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html#part-two-main-id">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html#feedback-id">Feedback</a>
+                    </li>
+
+
+                </ul>
+                <form class="d-flex searchBar">
+                    <input class="form-control me-2" id="searchTxt" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+<div class="dropdown">
+    <a class="btn btn-default dropdown-toggle" type="button" role="button" id="menu1" data-toggle="dropdown"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../user-removebg-preview.png" width="50px" height=auto class="img-fluid">
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu text-align-left" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="index.html">My Profile</a></li>
+        <li><button class="dropdown-item Logout" id="logof">Logout</button></li>
+
+    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-3">
+        <h1>Welcome To Magic Notes</h1>
+        <div class="card">
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <h5 class="card-title">Add Title</h5>
+                    <input type="email" class="form-control" id="addTitle" aria-describedby="title"
+                        placeholder="Enter title">
+                </div>
+
+                <h5 class="card-title">Add a note</h5>
+                <div class="form-group">
+                    <textarea class="form-control" id="addTxt" rows="3"></textarea>
+                </div>
+                <br>
+                <button class="btn btn-primary" id="addBtn">Add Note</button>
+            </div>
+        </div>
+        <hr>
+        <h1>Your Notes</h1>
+        <hr>
+        <div id="notes" class="row container-fluid"> </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/logout.js"></script>
+
+</html>
