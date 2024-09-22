@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import AddNote from './components/AddNote';
+import ShowNotes from './components/ShowNotes';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+  const handleAddNote = (note) => {
+      setNotes([...notes, note]);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <div className="container my-3">
+        <h1>Welcome To Magic Notes</h1>
+        <AddNote onAddNote={handleAddNote} />
+        <hr />
+        <h1>Your Notes</h1>
+        <hr />
+        <ShowNotes notes={notes} />
+      </div>
     </div>
   );
 }
