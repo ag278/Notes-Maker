@@ -21,6 +21,7 @@ function App() {
         <h1>Your Notes</h1>
         <hr />
         <ShowNotes notes={notes} />
+        <ShowNotes notes={notes} />
       </div>
     </div>
   );
